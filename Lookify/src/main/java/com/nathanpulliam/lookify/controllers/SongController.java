@@ -62,4 +62,23 @@ public class SongController {
 			return "redirect:/dashboard";
 		}
 	}
+	@RequestMapping("songs/topTen")
+	public String topTen(Model model) {
+		List<Song> songsByRating = mainServ.topRated();
+		model.addAttribute("songsByRating", songsByRating);
+		return "top_ten.jsp";
+	}
+	@RequestMapping("songs/{id}")
+	public String showSong(@PathVariable("id") Long id, Model model) {
+		Song song = mainServ.findSong(id);
+		model.addAttribute("song", song);
+		return "show_song.jsp";
+	}
+	
+	@RequestMapping("songs/{id}/delete") 
+		public String deleteSong(@PathVariable("id") Long id) {
+			mainServ.deleteSong(id);	
+			return "redirect:/dashboard";
+	}
 }
+

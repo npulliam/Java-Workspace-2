@@ -22,7 +22,24 @@
 					<input type="search" name="searchArtist"/>
 					<button type="submit" class="btn btn-dark">Search Artist</button>
 				</form>
-				
+				<table class="table table-dark table-striped m-4 p-2">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Rating</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${allSongs}" var="song">
+							<tr>
+								<td><a href="/songs/${song.id}"><c:out value="${song.name}"/></a></td>
+								<td><c:out value="${song.rating}"/></td>
+								<td><a href="/songs/${song.id}/delete">delete</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
 		</div>
 		

@@ -31,4 +31,12 @@ public class MainService {
 	public List<Song> songsByArtist(String artist) {
 		return songRepository.findByArtistContaining(artist);
 	}
+	
+	public List<Song> topRated() {
+		return songRepository.findAllByOrderByRatingDesc();
+	}
+	
+	public void deleteSong(Long id) {
+		songRepository.deleteById(id);
+	}
 }

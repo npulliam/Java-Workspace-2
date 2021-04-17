@@ -16,31 +16,18 @@
 	<body>
 		<div class="container">
 			<div class="row d-flex justify-content-between mx-5 my-3">
-				<p>Songs by artist: <c:out value="${currentSearch}"/></p>
-				<form action="/search" method="POST">
-					<input type="search" name="searchArtist"/>
-					<button type="submit" class="btn btn-dark">New Search</button>
-				</form>
+				<p>Top Ten Songs:</p>
 				<a href="/dashboard">dashboard</a>
 			</div>
-				<table class="table table-dark table-striped m-4 p-2">
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>Rating</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${songsByArtist}" var="song">
-							<tr>
-								<td><a href="/songs/${song.id}"><c:out value="${song.name}"/></a></td>
-								<td><c:out value="${song.rating}"/></td>
-								<td><a href="/songs/${song.id}/delete">delete</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+			<div class="card m-5 p-5">
+				<c:forEach items="${songsByRating}" var="song">
+					<p>
+						<c:out value="${song.rating}"/> - 
+						<a href="/songs/${song.id}"><c:out value="${song.name}"/></a> - 
+						<c:out value="${song.artist}"/>
+					</p>
+				</c:forEach>
+			</div>
 		</div>
 	</body>
 </html>

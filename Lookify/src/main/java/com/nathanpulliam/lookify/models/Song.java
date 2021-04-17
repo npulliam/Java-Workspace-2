@@ -33,7 +33,7 @@ public class Song {
 	@NotNull
 	@Min(1)
 	@Max(10)
-	private int rating;
+	private Integer rating;
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -60,7 +60,7 @@ public class Song {
 		
 	}
 	
-	public Song(String name, String artist, int rating) {
+	public Song(String name, String artist, Integer rating) {
 		this.name = name;
 		this.artist = artist;
 		this.rating = rating;
@@ -97,7 +97,7 @@ public class Song {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 	

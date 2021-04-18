@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -39,7 +41,14 @@ public class Song {
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-    
+    @PrePersist
+	protected void onCreate(){
+        this.createdAt = new Date();
+    }
+	@PreUpdate
+	protected void onUpdate(){
+	    this.updatedAt = new Date();
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}

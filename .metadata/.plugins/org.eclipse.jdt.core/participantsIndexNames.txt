@@ -19,3 +19,5 @@ C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclips
 \ProductsCategories\src\main\java
 C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\330549711.index
 \DojosNinjas\src\main\java
+C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4097778801.index
+\ControllerViews\src\main\java

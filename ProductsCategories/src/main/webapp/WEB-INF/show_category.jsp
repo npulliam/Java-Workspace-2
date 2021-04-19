@@ -15,24 +15,24 @@
 	</head>
 	<body>
 		<div class="container">
-			<h2><c:out value="${product.name}"/></h2>
+			<h2><c:out value="${category.name}"/></h2>
 			<div class="row">
 				<div class="col">
-					<p>Categories:</p>
+					<p>Products:</p>
 					<ul>
-						<c:forEach items="${productCats}" var="category">
-							<li><c:out value="${category.name}"/></li>
+						<c:forEach items="${categoryProds}" var="product">
+							<li><c:out value="${product.name}"/></li>
 						</c:forEach>
 					</ul>
 				</div>
 				<div class="col">
-					<form:form action="/products/${product.id}/addcategory" method="post" modelAttribute="categoryObj">
-						<form:label path="id">Add Category</form:label>
+					<form:form action="/categories/${category.id}/addproduct" method="post" modelAttribute="productObj">
+						<form:label path="id">Add Product</form:label>
 						<form:select path="id">
-							<c:forEach items="${allCategories}" var="category">
-								<c:if test="${!productCats.contains(category)}">
-									<form:option value="${category.id}">
-										<c:out value="${category.name}"/>
+							<c:forEach items="${allProducts}" var="product">
+								<c:if test="${!categoryProds.contains(product)}">
+									<form:option value="${product.id}">
+										<c:out value="${product.name}"/>
 									</form:option>
 								</c:if>
 							</c:forEach>

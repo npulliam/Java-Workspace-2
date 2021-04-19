@@ -84,6 +84,20 @@ public class MainController {
 		mainServ.createProduct(product);
 		return "redirect:/products/" + id;
 	}
-	
+	@GetMapping("/categories/{id}")
+	public String showProduct(
+			@ModelAttribute("productObj") Product emptyObj,
+			@PathVariable("id") Long id,
+			Model model
+		) {
+		Category category = mainServ.findCategory(id);
+		List<Product> prodsFromDb = mainServ.getProducts();
+		List<Product> categoryProds = category.getProducts();
+		model.addAttribute("allProducts", prodsFromDb);
+		model.addAttribute("category", category);
+		model.addAttribute("categoryProds", categoryProds);
+		return "show_category.jsp";
+		
+	}
 }
 

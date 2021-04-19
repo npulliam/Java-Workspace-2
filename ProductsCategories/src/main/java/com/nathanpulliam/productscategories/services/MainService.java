@@ -25,6 +25,9 @@ public class MainService {
 		return productRepo.findById(id).orElse(null);
 	}
 	
+	public List<Product> getProducts(){
+		return productRepo.findAll();
+	}
 	public Category createCategory(Category newCategory) {
 		return categoryRepo.save(newCategory);
 	}

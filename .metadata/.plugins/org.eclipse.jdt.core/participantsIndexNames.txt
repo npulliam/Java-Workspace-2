@@ -15,5 +15,7 @@ C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclips
 \DojoSurvey\src\main\java
 C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1849117623.index
 \TheCode\src\main\java
+C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3831522614.index
+\ProductsCategories\src\main\java
 C:\Users\natha\OneDrive\Dojo_Assignments\Java\Test\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\330549711.index
 \DojosNinjas\src\main\java

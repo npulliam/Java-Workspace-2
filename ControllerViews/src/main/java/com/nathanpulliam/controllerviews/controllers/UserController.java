@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nathanpulliam.controllerviews.models.User;
 import com.nathanpulliam.controllerviews.services.UserService;
@@ -45,12 +46,20 @@ public class UserController {
 		 }
 	 }
 	 
-//	 @RequestMapping(value="/login", method=RequestMethod.POST)
-//	 public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
-//		 // if the user is authenticated, save their user id in session
-//		 
-//		 // else, add error messages and return the login page
-//	 }
+	 @RequestMapping(value="/login", method=RequestMethod.POST)
+	 public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
+		 // if the user is authenticated, save their user id in session
+		 if(userService.authenticateUser(email, password)) {
+			 User user = userService.findByEmail(email);
+			 session.setAttribute("user_id", user.getId());
+			 return "redirect:/home";
+		 } else {
+			 // else, add error messages and return the login page
+			 redirectAttributes.addFlashAttribute("error", "INVALID CREDENTIALS");
+			 return "redirect:/login";
+		 }
+		 
+	 }
 	 
 	 @RequestMapping("/home")
 	 public String home(HttpSession session, Model model) {
@@ -61,9 +70,11 @@ public class UserController {
 		 return "homePage.jsp";
 		 
 	 }
-//	 @RequestMapping("/logout")
-//	 public String logout(HttpSession session) {
-//	     // invalidate session
-//		 // redirect to login page
-//	 }
+	 @RequestMapping("/logout")
+	 public String logout(HttpSession session) {
+	     // invalidate session
+		 session.invalidate();
+		 // redirect to login page
+		 return "redirect:/login";
+	 }
 }

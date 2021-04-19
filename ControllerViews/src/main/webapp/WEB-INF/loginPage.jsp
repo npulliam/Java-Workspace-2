@@ -15,6 +15,8 @@
 	</head>
 	<body>
 		<div class="container">
+			<h1>Login</h1>
+			<p><c:out value="${error}"/></p>
 			<form method="post" action="/login">
 		        <p>
 		            <label for="email">Email</label>

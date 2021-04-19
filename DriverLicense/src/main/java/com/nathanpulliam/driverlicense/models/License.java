@@ -15,6 +15,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="licenses")
 public class License {
@@ -22,9 +24,11 @@ public class License {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String number;
+	@DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date expirationDate;
     @Size(min=2, max = 2, message="State must be abbreviated (2 character format)")
     private String state;
+    
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;

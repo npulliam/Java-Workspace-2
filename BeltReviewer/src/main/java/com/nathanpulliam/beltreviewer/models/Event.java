@@ -13,8 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
@@ -51,7 +51,9 @@ public class Event {
 	private List<User> joinedUsers;
 	
 	@Column(updatable=false)
+	@DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date createdAt;
+	@DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date updatedAt;
     
     public Event() {
@@ -142,7 +144,7 @@ public class Event {
     protected void onCreate(){
         this.createdAt = new Date();
     }
-    @PostPersist
+    @PreUpdate
     protected void onUpdate(){
         this.updatedAt = new Date();
     }

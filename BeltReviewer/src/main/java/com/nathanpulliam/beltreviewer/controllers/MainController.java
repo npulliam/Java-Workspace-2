@@ -209,5 +209,8 @@ public class MainController {
 		 }
 		 return "redirect:/events";
 	 }
-	 
+	 @GetMapping("events/{eventId}")
+	 public String viewEvent() {
+		 return "show_event.jsp";
+	 }
 }

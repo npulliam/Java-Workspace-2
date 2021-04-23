@@ -20,6 +20,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -57,7 +59,9 @@ public class User {
     private List<Event> joinedEvents;
     
     @Column(updatable=false)
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date createdAt;
+    @DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date updatedAt;
     
     public User() {
